@@ -27,39 +27,39 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
 
-
 Hey there {},
-My name is Lilly Bot im here to help you manage your groups
-hit! /help to fine out more about
-how to use me to my full potential!
-
-make sure to join our [Support Group](t.me/LillyBotChat)
-*Donation*
-you can also donate to the
-person currently running me
-[Paytm](https://paytm.me/d-tXs3H)
-
+My name is Lilly I am a powerful group management bot.\n
+To know more about me and my commands hit /help.\n
+I have nostly all commands for management!\n
+======================
+For Queries Join  [Support Group](t.me/LillyBotChat)
+For Donations click [here](/donate).
+======================
 """
+
+
+
+
 
 HELP_STRINGS = """
 
 Hello! my name *{}*.
 
-@MissLillyBot is the *most* complete Bot to help you *manage* your groups easily and *safely!*
+Miss Lilly is the *most* complete Bot to help you *manage* your groups.
 
 👉 *Add* me in a supergroup and promote me as 
 *admin* to let me get in action!
 
-❓ What are the *Commands* press to /help to see all the commands and how they works!
+To know the *Commands* press to /help and know how they work
 
-*Subscribe* @rkprojects if you 💔 using this bot:
- - /donate: information about how to donate!
+A small project by @rkprojects.
+- /donate: information about how to donate!
 {}
-*And* the following:
+My commands are :
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
 
-MEIKO_IMG = "https://telegra.ph/file/868b6fb7dae0d490776ca.mp4"
+MEIKO_IMG = "https://telegra.ph/file/0d3afed0ffe6cb01c3f2d.jpg"
 
 DONATE_STRING = """Thanks for showing interest in my works
 To donate you can send any amount you wish to using the following
@@ -156,14 +156,15 @@ def start(bot: Bot, update: Update, args: List[str]):
             first_name = update.effective_user.first_name
             buttons = InlineKeyboardMarkup(
          [[InlineKeyboardButton(text="Add Lilly To Your Group", url="https://t.me/misslillybot?startgroup=new")],
-         [InlineKeyboardButton(text="Support Group 👥", url="https://t.me/lillybotchat")],
-         [InlineKeyboardButton(text="Help And Commands ❔", callback_data="help_back")]])
+         [InlineKeyboardButton(text="Join support Group", url="https://t.me/lillybotchat")],
+         [InlineKeyboardButton(text="For Help And Commands", callback_data="help_back")]])
             update.effective_message.reply_photo(MEIKO_IMG,
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN, reply_markup=buttons)
 
     else:
-        update.effective_message.reply_text("Heya! Am Awake 😊")
+        update.effective_message.reply_text("Hey! Am Awake😊")
+
 
 
 def send_start(bot, update):
