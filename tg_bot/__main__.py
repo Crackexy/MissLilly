@@ -50,11 +50,7 @@ Miss Lilly is the *most* complete Bot to help you *manage* your groups.
 👉 *Add* me in a supergroup and promote me as 
 *admin* to let me get in action!
 
-To know the *Commands* press to /help and know how they work
-
-
-A small project by @rkprojects.
-- /donate: information about how to donate!
+I am a part of @RkProjects.
 
 My commands are :
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
