@@ -28,14 +28,14 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 PM_START_TEXT = """
 
 
-hey there 👋
-my name is Lilly Bot im here to help you manage your groups
+Hey there {},
+My name is Lilly Bot im here to help you manage your groups
 hit! /help to fine out more about
 how to use me to my full potential!
 [°](https://telegra.ph/file/868b6fb7dae0d490776ca.mp4)
 make sure to join our [Support Group](t.me/LillyBotChat)
 *Donation*
-your also donate to the
+you can also donate to the
 person currently running me
 [Paytm](https://paytm.me/d-tXs3H)
 
@@ -153,12 +153,12 @@ def start(bot: Bot, update: Update, args: List[str]):
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
-                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="🔸ADD ME TO YOUR GROUP🔸",
+                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Add Lilly To Your Group",
                                                                        url="t.me/{}?startgroup=true".format(bot.username))]]))
 
 
     else:
-        update.effective_message.reply_text("Yo, whadup?🤧")
+        update.effective_message.reply_text("Heya! Am Awake 😊")
 
 
 def send_start(bot, update):
