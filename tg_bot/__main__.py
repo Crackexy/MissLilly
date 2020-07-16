@@ -32,7 +32,7 @@ Hey there {},
 My name is Lilly Bot im here to help you manage your groups
 hit! /help to fine out more about
 how to use me to my full potential!
-[°](https://telegra.ph/file/868b6fb7dae0d490776ca.mp4)
+
 make sure to join our [Support Group](t.me/LillyBotChat)
 *Donation*
 you can also donate to the
@@ -57,6 +57,9 @@ Hello! my name *{}*.
 {}
 *And* the following:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
+
+
+MEIKO_IMG = "https://telegra.ph/file/868b6fb7dae0d490776ca.mp4"
 
 DONATE_STRING = """Thanks for showing interest in my works
 To donate you can send any amount you wish to using the following
@@ -151,11 +154,13 @@ def start(bot: Bot, update: Update, args: List[str]):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_text(
+            buttons = InlineKeyboardMarkup(
+         [[InlineKeyboardButton(text="Add Lilly To Your Group", url="https://t.me/misslillybot?startgroup=new")],
+         [InlineKeyboardButton(text="Support Group 👥", url="https://t.me/lillybotchat")],
+         [InlineKeyboardButton(text="Help And Commands ❔", callback_data="help_back")]])
+            update.effective_message.reply_photo(MEIKO_IMG,
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
-                parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Add Lilly To Your Group",
-                                                                       url="t.me/{}?startgroup=true".format(bot.username))]]))
-
+                parse_mode=ParseMode.MARKDOWN, reply_markup=buttons)
 
     else:
         update.effective_message.reply_text("Heya! Am Awake 😊")
